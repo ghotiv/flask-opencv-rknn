@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>鲁班猫监控检测</title>
+    <style>
+        body {
+            background-color: #484856;
+        }
+
+    </style>
+</head>
+<body>
+<h1 align="center" style="color: whitesmoke;">Flask+OpenCV+Rknn</h1>
+<div class="top">
+    <div class="recorder" id="recorder" align="center">
+        <button id="record" class="btn">录制视频</button>
+        <button id="stop" class="btn">暂停录制</button>
+        <button id="process" class="btn">开启检测</button>
+        <button id="pause" class="btn">暂停检测</button>
+        <input type="button" class="btn" value="退出登录"
+            onclick="javascrtpt:window.location.href='{{ url_for('user.logout') }}'">
+        <a id="download"></a>
+        <script type="text/javascript" src="{{ url_for('static', filename='button_process.js') }}"></script>
+    </div>
+</div>
+<img id="video" src="{{ url_for('home.video_viewer') }}">
+</body>
+</html>

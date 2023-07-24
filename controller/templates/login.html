@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <link href="../static/css/style.css" rel='stylesheet' type='text/css'/>
+    <!--字体-->
+    <link href='http://fonts.useso.com/css?family=PT+Sans:400,700,400italic,700italic|Oswald:400,300,700'
+          rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+    <!--//js-->
+    <script src="http://ajax.useso.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+</head>
+<body>
+<script>$(document).ready(function (c) {
+    $('.close').on('click', function (c) {
+        $('.login-form').fadeOut('slow', function (c) {
+            $('.login-form').remove();
+        });
+    });
+});
+</script>
+<!--SIGN UP-->
+<h1>鲁班猫监控检测</h1>
+<div class="login-form">
+    <div class="close"></div>
+    <div class="head-info">
+        <label class="lbl-1"> </label>
+        <label class="lbl-2"> </label>
+        <label class="lbl-3"> </label>
+    </div>
+    <div class="clear"></div>
+    <div class="avtar">
+        <img src="../static/images/cat.png"/>
+    </div>
+    <form method="post" action="{{ url_for("user.login") }}">
+        <input type="text" class="text" name="username" value="Username" onfocus="this.value = '';"
+               onblur="if (this.value == '') {this.value = 'Username';}">
+        <div class="key">
+            <input type="password" name="password" value="Passowrd" onfocus="this.value = '';"
+                   onblur="if (this.value == '') {this.value = 'Password';}">
+        </div>
+        <div class="signin">
+            <input type="submit" value="Login">
+            {% if errmsg %} {# 判断是否有错误信息 #}
+
+                <div class="error_tip" style="display: block;color: red">{{ errmsg }}</div>
+
+            {% endif %}
+        </div>
+    </form>
+
+</div>
+<div class="copy-rights">
+    <p> Copyright@2023 仅供学习参考，详细使用信息参考下 <a href="https://doc.embedfire.com/linux/rk356x/Python/zh/latest/circuit/rknn.html" target="_blank" title="Github">教程</a></p>
+</div>
+
+</body>
+</html>
